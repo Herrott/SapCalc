@@ -1,4 +1,4 @@
-package com.example;
+package com.SapCalc;
 
 import com.google.inject.Provides;
 import javax.inject.Inject;
@@ -7,6 +7,7 @@ import net.runelite.api.ChatMessageType;
 import net.runelite.api.Client;
 import net.runelite.api.GameState;
 import net.runelite.api.events.GameStateChanged;
+import net.runelite.api.events.GameTick;
 import net.runelite.client.config.ConfigManager;
 import net.runelite.client.eventbus.Subscribe;
 import net.runelite.client.plugins.Plugin;
@@ -14,15 +15,16 @@ import net.runelite.client.plugins.PluginDescriptor;
 
 @Slf4j
 @PluginDescriptor(
-	name = "Example"
+	name = "Sap Calc"
 )
-public class ExamplePlugin extends Plugin
+public class SapCalcPlugin extends Plugin
 {
+
 	@Inject
 	private Client client;
 
 	@Inject
-	private ExampleConfig config;
+	private SapCalcConfig config;
 
 	@Override
 	protected void startUp() throws Exception
@@ -45,9 +47,11 @@ public class ExamplePlugin extends Plugin
 		}
 	}
 
+
+
 	@Provides
-	ExampleConfig provideConfig(ConfigManager configManager)
+	SapCalcConfig provideConfig(ConfigManager configManager)
 	{
-		return configManager.getConfig(ExampleConfig.class);
+		return configManager.getConfig(SapCalcConfig.class);
 	}
 }
